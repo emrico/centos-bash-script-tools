@@ -1,0 +1,32 @@
+#!/bin/bash
+
+clear
+
+width=2
+filename="treenode"
+
+if [ "$1" != "" ];then
+	width=$1
+fi
+
+if [ "$2" != "" ];then
+	filename=$2
+fi
+
+
+mkdir $filename
+cd $filename
+for i in $(seq 1 $width) ;do
+	mkdir dir$i
+	cd dir$i
+	for j in $(seq 1 $width);do
+		mkdir dir$j;
+	done;
+	cd ..
+done
+cd ..
+
+echo
+echo "Operation Complete - Tree Created"
+echo
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+pext=$1
+fext=$2
+
+for i in $(ls *$pext);do
+	filename="${i%.*}"
+	mv $i $filename$fext
+done
+
+echo
+echo "Extension Change Complete"
+echo
