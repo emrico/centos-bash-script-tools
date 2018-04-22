@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# For best usage place this script somewhere in your path
-# OPTIONS
-# =======
-# chkfsec | Displays the contents of the /var/log/secure file
-# chkfsec -c | Displays the number of "Failed" user login attempts
-# chkfsec -u | Displays all of the "Failed" login attempt usernames
-
-
 clear
 if [ "$1" = "" ];then
    cat /var/log/secure
