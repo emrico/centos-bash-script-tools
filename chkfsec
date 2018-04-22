@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# For best usage place this script somewhere in your path
+# OPTIONS
+# =======
+# chkfsec | Displays the contents of the /var/log/secure file
+# chkfsec -c | Displays the number of "Failed" user login attempts
+# chkfsec -u | Displays all of the "Failed" login attempt usernames
+
+
+clear
+if [ "$1" = "" ];then
+   cat /var/log/secure
+elif [ "$1" = "-c" ];then
+   echo "Failed SSH User Count"
+   echo "====================="
+   cat /var/log/secure | grep -c "Failed"
+elif [ "$1" = "-u" ];then
+   echo "Failed SSH User Password List"
+   echo "============================="
+   echo
+   cat /var/log/secure | grep "Failed" | cut -d' ' -f11
+else
+   echo "This is not a valid option"
+fi
+echo
